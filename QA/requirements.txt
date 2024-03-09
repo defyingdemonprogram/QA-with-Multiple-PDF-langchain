@@ -1,0 +1,17 @@
+streamlit
+# main langchain
+langchain 
+python-dotenv
+google-generativeai
+
+# langchain for google generative ai
+langchain-google-genai
+
+# langchain for text-splitter
+langchain-text-splitters
+
+# langchain-community for vectorstores
+langchain-community
+
+# For CUDA supported faiss package use `pip install faiss-gpu` instead
+faiss-cpu
