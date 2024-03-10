@@ -1,3 +1,34 @@
+# QA with Multiple PDFs - Quick Start Guide
+
+## Get Answers from Multiple PDFs using Langchain
+
+Follow these simple steps to set up and run the QA application that extracts answers from multiple PDFs.
+
+1. **Clone the Repository**
+```bash
+git clone https://github.com/defyingdemonprogram/QA-with-Multiple-PDF-langchain
+cd QA-with-Multiple-PDF-langchain/QA
+```
+
+2. **Create and Activate a Virtual Environment (Linux and macOS)**
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+3. **Install Dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+4. **Run the QA Application**
+```bash
+streamlit run app.py
+```
+
+Now, you can interact with the Streamlit application to ask questions about the content of the uploaded PDF files and receive detailed answers. Enjoy exploring information from your PDFs with ease!
+
+## Some Info
 ```python
 import os
 from typing import  Union, List
@@ -7,14 +38,12 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.vectorstores import FAISS
 from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
-
-load_dotenv()
 ```
  ## PyPDF2
 [Documentation](https://pypdf2.readthedocs.io/en/3.0.0/)
@@ -62,3 +91,27 @@ query_vecs = [query_embeddings.embed_query(q) for q in [query, query_2, answer_1
 ```
 
 In retrieval, relative distance matters.
+
+
+## Contributing
+
+Contributions are welcome! If you find any issues or want to add new features, feel free to submit a pull request.
+
+## Contact Me
+
+<table>
+  <tr>
+    <td><img src="https://github.com/realsanjeev/protfolio/blob/main/src/assets/images/instagram.png" alt="Instagram" width="50" height="50"></td>
+    <td><img src="https://github.com/realsanjeev/protfolio/blob/main/src/assets/images/twitter.png" alt="Twitter" width="50" height="50"></td>
+    <td><img src="https://github.com/realsanjeev/protfolio/blob/main/src/assets/images/github.png" alt="GitHub" width="50" height="50"></td>
+    <td><img src="https://github.com/realsanjeev/protfolio/blob/main/src/assets/images/linkedin-logo.png" alt="LinkedIn" width="50" height="50"></td>
+  </tr>
+</table>
+
+## License
+
+This project is licensed under the [Creative Commons Legal Code](LICENSE).
+
+---
+
+Feel free to modify and enhance this `README.md` as needed to match your specific project details. The provided steps are generic, and you should customize them according to the actual setup and configuration of your "Question Answering with multiple PDF" project.
