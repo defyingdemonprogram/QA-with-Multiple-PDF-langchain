@@ -40,7 +40,7 @@ def get_pdf_text(pdf_paths: Union[List[str], str]) -> str:
             st.error(f"Error processing PDF: {err}")
     return texts
 
-def get_text_chunks(text: str, chunk_size: int = 1000, overlap: int = 100) -> List[str]:
+def get_text_chunks(text: str, chunk_size: int = 10_000, overlap: int = 1000) -> List[str]:
     """Splits text into manageable chunks with overlaps for context."""
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, 
                                                    chunk_overlap=overlap)
@@ -74,21 +74,21 @@ def get_conversational_chain():
 
     model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.5)
     prompt = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
-    chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
+    chain = load_qa_chain(model, chain_type="stuff", prompt=prompt, verbose=True)
     return chain
 
-def user_input(user_question, vector_store):
+def answer_user_input(user_question, vector_store):
     """Processes user input, generates answer using the chain, and displays it."""
 
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
     docs = vector_store.similarity_search(user_question, embeddings=embeddings)
     chain = get_conversational_chain()
     # get response from model
-    response = chain({"input_documents": docs, "question": user_question})
-    st.write("Reply:", response["output_text"])
+    response = chain.invoke({"input_documents": docs, "question": user_question})
+    with st.chat_message("assistant"):
+        st.write(response["output_text"])
 
     
-
 def main():
     """Sets up Streamlit UI and processes user interaction."""
 
@@ -105,6 +105,8 @@ def main():
     if uploaded_pdfs:
         with st.spinner("Processing PDFs..."):
             processed_text = get_pdf_text(uploaded_pdfs)
+            with open("test.txt", "w") as fp:
+                fp.write(processed_text)
             # get the processed text after splitting
             text_chunks = get_text_chunks(processed_text)
             # convert the text chunk in embeddings and store it
@@ -116,7 +118,7 @@ def main():
     if processed_text and vector_store:
         user_question = st.text_input("Ask a question about the PDFs:", "What is this PDF about?")
         if user_question:
-          user_input(user_question, vector_store)
+          answer_user_input(user_question, vector_store)
 
 
 if __name__=="__main__":
