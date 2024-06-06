@@ -12,6 +12,7 @@ langchain-text-splitters
 
 # langchain-community for vectorstores
 langchain-community
+pypdf2
 
 # For CUDA supported faiss package use `pip install faiss-gpu` instead
 faiss-cpu

@@ -1,6 +1,54 @@
-# QA-with-Multiple-PDF-langchain
-Question answering with multiple pdf. Deployed using streamlit and developed with Langchain
+# QA with Multiple PDFs and Food Diet Manager
+This application provides question-answering capabilities with multiple PDFs and manages food diet information. It is deployed using Streamlit and developed with Langchain, featuring a multipage interface.
 
+## Features
+- **PDF QA**: Upload multiple PDFs and extract answers to your questions.
+- **Food Diet Manager**: Enter food-related prompts and get detailed health and calorie information.
+
+## Setup and Installation
+
+Follow these simple steps to set up and run the application.
+
+1. **Clone the Repository**
+    ```bash
+    git clone https://github.com/defyingdemonprogram/QA-with-Multiple-PDF-langchain
+    cd QA-with-Multiple-PDF-langchain/
+    ```
+
+2. **Create and Activate a Virtual Environment (Linux and macOS)**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate
+    ```
+
+3. **Install Dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Run the Application**
+    ```bash
+    streamlit run Home.py
+    ```
+
+Now, you can interact with the Streamlit application to ask questions about the content of the uploaded PDF files and receive detailed answers. Additionally, you can manage and explore food diet information with ease!
+
+## Usage
+
+### PDF QA
+1. Launch the application using the provided Streamlit command.
+2. Navigate to the "PDF QA" section.
+3. Upload multiple PDF files.
+4. Enter your questions in the input box.
+5. Receive detailed answers based on the content of the uploaded PDFs.
+
+### Food Diet Manager
+1. Navigate to the "Food Diet Manager" section.
+2. Enter your food-related prompt in the input box.
+3. Click the "Tell me the total calories" button to receive AI-generated responses.
+4. Explore the details provided by the AI assistant, including the total calories and specific information for each food item.
+
+Enjoy exploring information from your PDFs and managing your diet with this integrated application!
 
 
 ## Contributing

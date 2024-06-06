@@ -21,7 +21,8 @@ genai.configure(api_key=os.environ.get("GOOGLE_API_KEY"))
 # configure the page info
 st.set_page_config(page_title="Multiple PDF Q/A App with Gemini", 
                    page_icon="👾")
-st.title("Get Answer From Your PDF")
+st.title("🤔Get Answer From Your PDF")
+st.caption("Must upload the PDF to question the PDF")
 
 
 def get_pdf_text(pdf_paths: Union[List[str], str]) -> str:
@@ -96,7 +97,7 @@ def main():
 
     with st.sidebar:
         # Upload and process PDFs
-        uploaded_pdfs = st.file_uploader("Upload PDF Files",
+        uploaded_pdfs = st.file_uploader("Upload PDF Files you want to QA",
                                         type="pdf",
                                         accept_multiple_files=True)
     processed_text = None

@@ -1,33 +1,3 @@
-# QA with Multiple PDFs - Quick Start Guide
-
-## Get Answers from Multiple PDFs using Langchain
-
-Follow these simple steps to set up and run the QA application that extracts answers from multiple PDFs.
-
-1. **Clone the Repository**
-```bash
-git clone https://github.com/defyingdemonprogram/QA-with-Multiple-PDF-langchain
-cd QA-with-Multiple-PDF-langchain/QA
-```
-
-2. **Create and Activate a Virtual Environment (Linux and macOS)**
-```bash
-python -m venv venv
-source venv/bin/activate
-```
-
-3. **Install Dependencies**
-```bash
-pip install -r requirements.txt
-```
-
-4. **Run the QA Application**
-```bash
-streamlit run app.py
-```
-
-Now, you can interact with the Streamlit application to ask questions about the content of the uploaded PDF files and receive detailed answers. Enjoy exploring information from your PDFs with ease!
-
 ## Some Info
 ```python
 import os

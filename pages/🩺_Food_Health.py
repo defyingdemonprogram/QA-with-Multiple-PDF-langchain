@@ -11,8 +11,8 @@ load_dotenv()
 genai.configure(api_key=os.environ.get("GOOGLE_API_KEY"))
 
 # Configure the Streamlit page
-st.set_page_config(page_title="FOOD MANAGER", page_icon="🩺")
-st.title("Your Diet Manager")
+st.set_page_config(page_title="🥣FOOD MANAGER", page_icon="🩺")
+st.title("🥣Your Diet Manager")
 
 def get_gemini_response(input_prompt, image_data, system_prompt):
     model = genai.GenerativeModel('gemini-pro-vision')
@@ -39,7 +39,7 @@ user_input = st.text_input("Input Prompt: ", "Is this Food Healthy?",key="input"
 
 # Upload the image
 with st.sidebar:
-    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+    uploaded_file = st.file_uploader("Upload the image of food you want...", type=["jpg", "jpeg", "png"])
 
 # Display the uploaded image
 image = ""
